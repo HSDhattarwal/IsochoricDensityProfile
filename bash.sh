@@ -1,15 +1,12 @@
 #!/bin/bash
 
-gfortran -o a1 1-com-trdf-xy.f90 &
-gfortran -o a2 1-com-trdf-yx.f90 &
+gfortran -o a1 DensityDist-xy.f90 &
 wait
 ./a1 &
-./a2 &
 wait
   
 ####################non-zero-probability(+ 0. 0. 0. )############ 
 grep -v "0.0000000000000000" <x-y-nd.dat >fort-a1.dat
-grep -v "0.0000000000000000" <y-x-nd.dat >fort-a2.dat
 cat >fort-2.dat << EOF
 0. 0. 0.
 EOF
